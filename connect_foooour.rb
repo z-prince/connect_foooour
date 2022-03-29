@@ -1,4 +1,5 @@
-
+require './lib/game'
+require './lib/board'
 
 
 p 'Welcome to CoNnEcT fOoOoUr!'
