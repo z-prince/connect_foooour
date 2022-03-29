@@ -1,5 +1,8 @@
 require 'connect_fooour'
 
-Class Player
+class Player
 
+  def initialize()
+    
+  end
 end
