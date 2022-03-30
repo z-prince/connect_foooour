@@ -10,4 +10,8 @@ attr_reader :name
     # binding.pry
     @name = "Jerry"
   end
+
+  def play_piece(col)
+
+  end
 end
