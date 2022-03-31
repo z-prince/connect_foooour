@@ -1,3 +1,5 @@
+require 'pry'
+
 class Board
 
     attr_reader :cols, :height
@@ -19,6 +21,10 @@ class Board
     def fill_column(col, piece)
         raise "Invalid move, pick a column between A and G" if col > height
         free_slots = @board
+    end
+
+
+
 
 
 
