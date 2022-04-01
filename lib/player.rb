@@ -15,9 +15,14 @@ class Player
   # end
 
     def play_piece(col)
+      # binding.pry
+      placement = @board.board[col].find { |e| e == "." }
       binding.pry
-      @board.board[col].pop
-      @board.board[col].append(@piece)
-      @board.board
+      if placement == "."
+
+        end
+      # @board.board[col].pop
+      # @board.board[col].append(@piece)
+      # @board.board
   end
 end
