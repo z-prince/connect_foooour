@@ -1,11 +1,9 @@
-# "Jerry"
 require './lib/player'
 require 'rspec'
-# require './lib/connect_fooour'
 
 describe 'initialize' do
   it 'creates a player class with relevant objects in it' do
-    player = Player.new("Jerry")
+    player = Player.new
 
     expect(player).to be_an_instance_of(Player)
   end
@@ -23,8 +21,15 @@ end
 describe 'play_piece' do
   it 'should ask a player to enter a letter A-G and take user input' do
     player = Player.new
-    player.player_name
 
-    expect(player.play_piece("A")).to eq "A" 
+    expect(player.play_piece(:A)).to eq({
+                                        :A=>[".", ".", ".", ".", ".", "X"],
+                                        :B=>[".", ".", ".", ".", ".", "."],
+                                        :C=>[".", ".", ".", ".", ".", "."],
+                                        :D=>[".", ".", ".", ".", ".", "."],
+                                        :E=>[".", ".", ".", ".", ".", "."],
+                                        :F=>[".", ".", ".", ".", ".", "."],
+                                        :G=>[".", ".", ".", ".", ".", "."]
+                                        })
   end
 end

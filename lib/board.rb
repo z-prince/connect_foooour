@@ -6,13 +6,13 @@ class Board
 
   def initialize
     @board = {
-      A: %w[. . . . . .],
-      B: %w[. . . . . .],
-      C: %w[. . . . . .],
-      D: %w[. . . . . .],
-      E: %w[. . . . . .],
-      F: %w[. . . . . .],
-      G: %w[. . . . . .]
+      A: %w[. . . . . .].reverse,
+      B: %w[. . . . . .].reverse,
+      C: %w[. . . . . .].reverse,
+      D: %w[. . . . . .].reverse,
+      E: %w[. . . . . .].reverse,
+      F: %w[. . . . . .].reverse,
+      G: %w[. . . . . .].reverse
     }
   end
 
@@ -24,5 +24,9 @@ class Board
       end
         puts '' # Creates a break in the lines to convey a proper board
     end
+  end
+
+  def add_piece
+
   end
 end
