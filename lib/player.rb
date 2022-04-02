@@ -13,14 +13,23 @@ class Player
     print '> '
     # binding.pry
     move = gets.chomp.intern
-    if @game.space[move] == -1
-      puts "Invalid move, column #{move} is full"
-    else
+      # binding.pry
+    invalid_move(move)
     @game.player_piece(move)
-    end
   end
 
+  def invalid_move(move)
+    # binding.pry
+    if @game.space[move] < 0
+      puts "Invalid move, column #{move} is full"
+    elsif %i[A B C D E F G].include?(move)
+      puts 'Invalid move, column must be A through G'
+    else
+      "Nice move!"
+    end
+  end  
 
+end
 game = Board.new
 player = Player.new(game)
 loop do
@@ -32,3 +41,4 @@ end
 
 
     # raise "Invalid move, column #{col} is full" && exit if @space[col] == -1
+    %w[yes Yes sure Sure yep Yep y].include?(haiku)
