@@ -18,33 +18,4 @@ describe 'player_name' do
   end
 end
 
-describe 'play_piece' do
-  it 'should ask a player to enter a letter A-G and take user input' do
-    player = Player.new
-
-    expect(player.play_piece(:A)).to eq({
-                                        :A=>[".", ".", ".", ".", ".", "X"],
-                                        :B=>[".", ".", ".", ".", ".", "."],
-                                        :C=>[".", ".", ".", ".", ".", "."],
-                                        :D=>[".", ".", ".", ".", ".", "."],
-                                        :E=>[".", ".", ".", ".", ".", "."],
-                                        :F=>[".", ".", ".", ".", ".", "."],
-                                        :G=>[".", ".", ".", ".", ".", "."]
-                                        })
-  end
-
- it 'should take multiple pieces' do
-   player = Player.new
-   player.play_piece(:A)
-
-  expect(player.play_piece(:A)).to eq({
-                                        :A=>[".", ".", ".", ".", "X", "X"],
-                                        :B=>[".", ".", ".", ".", ".", "."],
-                                        :C=>[".", ".", ".", ".", ".", "."],
-                                        :D=>[".", ".", ".", ".", ".", "."],
-                                        :E=>[".", ".", ".", ".", ".", "."],
-                                        :F=>[".", ".", ".", ".", ".", "."],
-                                        :G=>[".", ".", ".", ".", ".", "."]
-                                        })
- end
 end
