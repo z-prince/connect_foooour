@@ -40,6 +40,8 @@ class Board
   end
 
   def player_piece(col)
+    # raise "Invalid move, column #{col} is full" && exit if @space[col] == -1
+
     e = @board[col].find_index('.')
     e += @space[col]
     @space[col] -= 1
