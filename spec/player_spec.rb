@@ -18,4 +18,14 @@ describe 'player_name' do
   end
 end
 
+describe 'player_input' do
+  it 'get player input and return error if col is not available' do
+    board = Board.new
+    player = Player.new
+
+
+    expect(player.player_input).to eq :A
+    expect(player.player_input).to eq "ERROR"
+  end
 end
+
