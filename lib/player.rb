@@ -2,40 +2,28 @@ require './lib/board'
 require 'pry'
 
 class Player
-  attr_reader :piece
+  # attr_reader
 
-  def initialize
-    @piece = "X"
-    #@board = Board.new
-    #@space = 5
+  def initialize(game)
+    @game = game
+    # board = Board.new
   end
 
-   # def player_name
-   # binding.pry
-   # @name = "Jerry"
-   # end
-
-  # def play_piece(col)
-  #   # binding.pry
-
-  #   e = @board.board[col].find_index('.')
-  #     # e += @space
-  #     # @space -= 1
-  #     @board.board[col][e] = @piece
-  #     @board.print_board
-
-  #     # @board.board[col].map do |spot|
-  #     #   spot.find_index('.')
-  #     #   spot.sub! '.', @piece
-  #     # end
-
-  #     # placement << @board.board[col].find_all { |e| e == "." }
-  #     # binding.pry
-  #     # if placement == "."
+  def player_input
+    puts "Pleas select a column"
+    print "> "
+    # binding.pry
+    move = gets.chomp.intern
+    @game.player_piece(move)
+  end
+end
 
 
-  #     # @board.board[col].pop
-  #     # @board.board[col].append(@piece)
-  #     # @board.board
-  # end
+game = Board.new
+player = Player.new(game)
+loop do
+
+player.player_input
+binding.pry
+game.print_board
 end

@@ -2,7 +2,7 @@
 
 # class Board will create and interact with the board.
 class Board
-  attr_reader :board, :space
+  attr_accessor :board, :space
 
   def initialize
     @board = {
@@ -54,5 +54,4 @@ class Board
     @board[col][e] = @piece2 # @board[:A][5]
     @board
   end
-
 end
