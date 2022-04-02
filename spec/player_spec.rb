@@ -3,7 +3,8 @@ require 'rspec'
 
 describe 'initialize' do
   it 'creates a player class with relevant objects in it' do
-    player = Player.new
+    board = Board.new
+    player = Player.new(board)
 
     expect(player).to be_an_instance_of(Player)
   end
@@ -19,7 +20,7 @@ describe 'player_name' do
 end
 
 describe 'player_input' do
-  it 'get player input and return error if col is not available' do
+  xit 'get player input and return error if col is not available' do
     board = Board.new
     player = Player.new
 
@@ -28,4 +29,21 @@ describe 'player_input' do
     expect(player.player_input).to eq "ERROR"
   end
 end
+
+describe 'comp_input' do 
+  it 'should take multiple pieces' do
+  board = Board.new
+  player = Player.new(board)
+ expect(player.comp_input).to eq({
+                                     :A=>[".", ".", ".", ".", ".", "O"],
+                                     :B=>[".", ".", ".", ".", ".", "."],
+                                     :C=>[".", ".", ".", ".", ".", "."],
+                                     :D=>[".", ".", ".", ".", ".", "."],
+                                     :E=>[".", ".", ".", ".", ".", "."],
+                                     :F=>[".", ".", ".", ".", ".", "."],
+                                     :G=>[".", ".", ".", ".", ".", "."]
+                                     })
+ end
+end
+
 

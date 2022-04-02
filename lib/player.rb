@@ -1,29 +1,24 @@
+# frozen_string_literal: false
+
 require './lib/board'
 require 'pry'
-
+# This class will allow manipulation of the board
 class Player
-  # attr_reader
-
   def initialize(game)
     @game = game
-    # board = Board.new
   end
 
   def player_input
-    puts "Pleas select a column"
-    print "> "
-    # binding.pry
+    puts 'Please select a column'
+    print '> '
     move = gets.chomp.intern
     @game.player_piece(move)
   end
-end
 
-
-game = Board.new
-player = Player.new(game)
-loop do
-
-player.player_input
-binding.pry
-game.print_board
+  # come back and add comp messages
+  def comp_input
+    action = %w[A B C D E F G]
+    random = action.sample.intern
+    @game.comp_piece(random)
+  end
 end
