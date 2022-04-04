@@ -11,14 +11,37 @@ class Player
   def player_input
     puts 'Please select a column'
     print '> '
-    move = gets.chomp.intern
-    @game.player_piece(move)
+    # binding.pry
+    move = gets.chomp.upcase.intern
+      # binding.pry
+    invalid_move(move)
   end
 
-  # come back and add comp messages
   def comp_input
-    action = %w[A B C D E F G]
-    random = action.sample.intern
+    random = @game.board.keys.sample
     @game.comp_piece(random)
   end
+
+  def invalid_move(move)
+    if !@game.board.keys.include?(move)
+      puts 'Invalid move, column must be A through G'
+    elsif @game.space[move].negative?
+      puts "Invalid move, column #{move} is full"
+    else
+      puts "Nice move!" && @game.player_piece(move)
+    end
+  end
+
+  def player_input_test
+    invalid_move(:S)
+  end
+
 end
+# game = Board.new
+# player = Player.new(game)
+# loop do
+
+# player.player_input
+# player.comp_input
+# game.print_board
+# end

@@ -31,7 +31,7 @@ describe 'player_input' do
 end
 
 describe 'comp_input' do 
-  it 'should take multiple pieces' do
+  xit 'should take multiple pieces' do
   board = Board.new
   player = Player.new(board)
  expect(player.comp_input).to eq({
@@ -47,3 +47,11 @@ describe 'comp_input' do
 end
 
 
+describe 'invalid_move()' do
+  it 'prevents players from choosing column outside of the specified range' do
+    game = Board.new
+    player = Player.new(game)
+
+    expect(player.player_input_test).to eq("Invalid move, column must be A through G")
+  end
+end
