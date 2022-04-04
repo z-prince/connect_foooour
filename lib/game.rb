@@ -4,6 +4,8 @@ require './lib/player'
 require 'pry'
 # This class will allow Connect-4 to be played
 class Game
+    attr_reader :player
+
     def initialize
         board = Board.new
         @player = Player.new(board)
@@ -24,10 +26,12 @@ class Game
     end
 
 # --------------- WIN CONDITIONS ---------------
-
+      
     def draw
-        @player.session.space.each do |draw|
-            @player.session.space[draw].negative? 
+        if @player.session.space.values == [-1, -1, -1, -1, -1, -1, -1]
+            puts "It's a DRAW!!!"
+            exit
+        end
     end
 
     def check_horizontal; end
@@ -37,5 +41,12 @@ class Game
     def check_diagonal; end
 end
 
+game = Game.new
 
-if @player.session.space.values == [-1, -1, -1, -1, -1, -1, -1]
+loop do
+# binding.pry
+game.player.player_input
+game.player.comp_input
+game.player.session.print_board
+game.draw
+end

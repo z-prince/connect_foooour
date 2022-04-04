@@ -4,6 +4,8 @@ require './lib/board'
 require 'pry'
 # This class will allow manipulation of the board
 class Player
+  attr_reader :session
+  
   def initialize(session)
     @session = session
   end
@@ -44,11 +46,4 @@ class Player
 
 end
 
-# session = Board.new
-# player = Player.new(session)
-# loop do
 
-# player.player_input
-# player.comp_input
-# session.print_board
-# end
