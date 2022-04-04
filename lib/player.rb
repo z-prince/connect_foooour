@@ -5,9 +5,9 @@ require 'pry'
 # This class will allow manipulation of the board
 class Player
   attr_reader :session
-  
-  def initialize(session)
-    @session = session
+
+  def initialize
+    @session = Board.new
   end
 
   def player_input

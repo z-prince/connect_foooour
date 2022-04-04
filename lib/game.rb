@@ -7,8 +7,8 @@ class Game
     attr_reader :player
 
     def initialize
-        board = Board.new
-        @player = Player.new(board)
+        # board = Board.new
+        @player = Player.new
     end
 
     def greeting
@@ -36,9 +36,22 @@ class Game
 
     def check_horizontal; end
 
-    def check_vertical; end
+    def check_vertical
+        if  @player.session.board.each_value do |win| 
+                # binding.pry
+                 win == %w[. . X X X X] || %w[. X X X X .] || %w[X X X X . .]
+            end
+        end
+    end
 
     def check_diagonal; end
+
+    def triumph
+        if check_vertical == true
+            puts "Player WINS"
+            exit
+        end
+    end
 end
 
 game = Game.new
@@ -46,7 +59,11 @@ game = Game.new
 loop do
 # binding.pry
 game.player.player_input
-game.player.comp_input
+# game.player.comp_input
 game.player.session.print_board
 game.draw
+game.triumph
 end
+
+
+# @player.session.board.each_key do |e|
