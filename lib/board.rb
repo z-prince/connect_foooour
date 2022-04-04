@@ -46,7 +46,8 @@ class Board
     e += @space[col]
     @space[col] -= 1
     @board[col][e] = @piece1 # @board[:A][5]
-    @board
+    # @board
+    return
   end
 
   def comp_piece(col)
@@ -54,6 +55,7 @@ class Board
     e += @space[col]
     @space[col] -= 1
     @board[col][e] = @piece2 # @board[:A][5]
-    @board
+    # @board
+    puts "The Computer plays #{col}"
   end
 end
