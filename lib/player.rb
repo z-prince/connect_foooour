@@ -4,31 +4,39 @@ require './lib/board'
 require 'pry'
 # This class will allow manipulation of the board
 class Player
-  def initialize(game)
-    @game = game
+  attr_reader :session
+
+  def initialize
+    @session = Board.new
   end
 
   def player_input
     puts 'Please select a column'
     print '> '
-    # binding.pry
     move = gets.chomp.upcase.intern
-      # binding.pry
-    invalid_move(move)
+    invalid_player_move(move)
   end
 
   def comp_input
-    random = @game.board.keys.sample
-    @game.comp_piece(random)
+    random = @session.board.keys.sample
+    invalid_comp_move(random)
   end
 
-  def invalid_move(move)
-    if !@game.board.keys.include?(move)
+  def invalid_player_move(move)
+    if !@session.board.keys.include?(move)
       puts 'Invalid move, column must be A through G'
-    elsif @game.space[move].negative?
+    elsif @session.space[move].negative?
       puts "Invalid move, column #{move} is full"
     else
-      puts "Nice move!" && @game.player_piece(move)
+      puts "Nice move!" && @session.player_piece(move)
+    end
+  end
+
+  def invalid_comp_move(move)
+    if @session.space[move].negative?
+      puts 'Whoa there buddy!' && comp_input # considering turn loop
+    else
+      @session.comp_piece(move)
     end
   end
 
@@ -37,11 +45,5 @@ class Player
   end
 
 end
-# game = Board.new
-# player = Player.new(game)
-# loop do
 
-# player.player_input
-# player.comp_input
-# game.print_board
-# end
+
