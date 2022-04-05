@@ -29,13 +29,16 @@ class Game
 
   def draw
     return unless @player.session.space.values == [-1, -1, -1, -1, -1, -1, -1]
-    
+
       puts "It's a DRAW!!!"
       exit
     end
   end
 
-  def check_horizontal_player; end
+  # def check_horizontal_player
+  #   @player.session.board.each_key do |win|
+  #     if win == 
+  # end
 
   def check_horizontal_comp; end
 
@@ -60,14 +63,14 @@ class Game
   end
 
   def computer_triumph
-    return unless check_vertical_comp == true
+    return unless check_vertical_comp == true || check_horizontal_player == true || check_diagonal_player == true
 
     puts 'The machines WILL RISE!!!'
     exit
   end
 
   def player_triumph
-    return unless check_vertical_player == true
+    return unless check_vertical_player == true || check_horizontal_player == true || check_diagonal_player == true
 
     puts 'Biological DoMiNaTiOn!!!'
     exit
