@@ -48,17 +48,18 @@ class Game
       row2 << win[2]
       row1 << win[1]
       row0 << win[0]
-      if row5[4..6] == %w[X X X X] || row5[3..5] == %w[X X X X] || row5[2..4] == %w[X X X X] || row5[0..3] == %w[X X X X] 
+      # binding.pry
+      if row5[3..6] == %w[X X X X] || row5[2..5] == %w[X X X X] || row5[1..4] == %w[X X X X] || row5[0..3] == %w[X X X X]
         return true
-      elsif row4[4..6] == %w[X X X X] || row4[3..5] == %w[X X X X] || row4[2..4] == %w[X X X X] || row4[0..3] == %w[X X X X]
+      elsif row4[3..6] == %w[X X X X] || row4[2..5] == %w[X X X X] || row4[1..4] == %w[X X X X] || row4[0..3] == %w[X X X X]
         return true
-      elsif row3[4..6] == %w[X X X X] || row3[3..5] == %w[X X X X] || row3[2..4] == %w[X X X X] || row3[0..3] == %w[X X X X]
+      elsif row3[3..6] == %w[X X X X] || row3[2..5] == %w[X X X X] || row3[1..4] == %w[X X X X] || row3[0..3] == %w[X X X X]
         return true
-      elsif row2[4..6] == %w[X X X X] || row2[3..5] == %w[X X X X] || row2[2..4] == %w[X X X X] || row2[0..3] == %w[X X X X]
+      elsif row2[3..6] == %w[X X X X] || row2[2..5] == %w[X X X X] || row2[1..4] == %w[X X X X] || row2[0..3] == %w[X X X X]
         return true
-      elsif row1[4..6] == %w[X X X X] || row1[3..5] == %w[X X X X] || row1[2..4] == %w[X X X X] || row1[0..3] == %w[X X X X]
+      elsif row1[3..6] == %w[X X X X] || row1[2..5] == %w[X X X X] || row1[1..4] == %w[X X X X] || row1[0..3] == %w[X X X X]
         return true
-      elsif row0[4..6] == %w[X X X X] || row0[3..5] == %w[X X X X] || row0[2..4] == %w[X X X X] || row0[0..3] == %w[X X X X]
+      elsif row0[3..6] == %w[X X X X] || row0[2..5] == %w[X X X X] || row0[1..4] == %w[X X X X] || row0[0..3] == %w[X X X X]
         return true
       end
     end
@@ -78,29 +79,31 @@ class Game
       row2 << win[2]
       row1 << win[1]
       row0 << win[0]
-      if row5[4..6] == %w[O O O O] || row5[3..5] == %w[O O O O] || row5[2..4] == %w[O O O O] || row5[0..3] == %w[O O O O] 
+      if row5[3..6] == %w[O O O O] || row5[2..5] == %w[O O O O] || row5[1..4] == %w[O O O O] || row5[0..3] == %w[O O O O]
         return true
-      elsif row4[4..6] == %w[O O O O] || row4[3..5] == %w[O O O O] || row4[2..4] == %w[O O O O] || row4[0..3] == %w[O O O O]
+      elsif row4[3..6] == %w[O O O O] || row4[2..5] == %w[O O O O] || row4[1..4] == %w[O O O O] || row4[0..3] == %w[O O O O]
         return true
-      elsif row3[4..6] == %w[O O O O] || row3[3..5] == %w[O O O O] || row3[2..4] == %w[O O O O] || row3[0..3] == %w[O O O O]
+      elsif row3[3..6] == %w[O O O O] || row3[2..5] == %w[O O O O] || row3[1..4] == %w[O O O O] || row3[0..3] == %w[O O O O]
         return true
-      elsif row2[4..6] == %w[O O O O] || row2[3..5] == %w[O O O O] || row2[2..4] == %w[O O O O] || row2[0..3] == %w[O O O O]
+      elsif row2[3..6] == %w[O O O O] || row2[2..5] == %w[O O O O] || row2[1..4] == %w[O O O O] || row2[0..3] == %w[O O O O]
         return true
-      elsif row1[4..6] == %w[O O O O] || row1[3..5] == %w[O O O O] || row1[2..4] == %w[O O O O] || row1[0..3] == %w[O O O O]
+      elsif row1[3..6] == %w[O O O O] || row1[2..5] == %w[O O O O] || row1[1..4] == %w[O O O O] || row1[0..3] == %w[O O O O]
         return true
-      elsif row0[4..6] == %w[O O O O] || row0[3..5] == %w[O O O O] || row0[2..4] == %w[O O O O] || row0[0..3] == %w[O O O O]
+      elsif row0[3..6] == %w[O O O O] || row0[2..5] == %w[O O O O] || row0[1..4] == %w[O O O O] || row0[0..3] == %w[O O O O]
         return true
       end
     end
   end
 
-  def check_diagonal_player; end
+  def check_diagonal_player
+
+  end
 
   def check_diagonal_comp; end
 
   def check_vertical_player
     @player.session.board.each_value do |win|
-      if win == %w[. . X X X X] || win == %w[. X X X X .] || win == %w[X X X X . .]
+      if win[0..3] == %w[X X X X] || win[1..4] == %w[X X X X] || win[2..5] == %w[X X X X]
         return true
       end
     end
@@ -108,7 +111,7 @@ class Game
 
   def check_vertical_comp
     @player.session.board.each_value do |win|
-      if win == %w[. . O O O O] || win == %w[. O O O O .] || win == %w[O O O O . .]
+      if win[0..3] == %w[O O O O] || win[1..4] == %w[O O O O] || win[2..5] == %w[O O O O]
         return true
       end
     end
@@ -118,7 +121,7 @@ class Game
     return unless check_vertical_comp == true || check_horizontal_comp == true #|| check_diagonal_player == true
 
     puts 'The machines WILL RISE!!!'
-    exit 
+    exit
   end
 
   def player_triumph
@@ -129,17 +132,17 @@ class Game
   end
 end
 
-game = Game.new
+# game =  Game.new
 
-loop do
-# binding.pry
-game.player.player_input
-game.player.comp_input
-game.player.session.print_board
-game.draw
-game.player_triumph
-game.comp_triumph
-end
+# loop do
+# # binding.pry
+# game.player.player_input
+# game.player.comp_input
+# game.player.session.print_board
+# game.draw
+# game.player_triumph
+# game.comp_triumph
+# end
 
 
 # @player.session.board.each_key do |e|
