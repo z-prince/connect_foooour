@@ -22,6 +22,7 @@ class Game
     # is this a body
     else
       p "You're really missing out!"
+      exit
     end
   end
 
@@ -119,14 +120,14 @@ class Game
 
   def comp_triumph
     return unless check_vertical_comp == true || check_horizontal_comp == true #|| check_diagonal_player == true
-
+    @player.session.print_board
     puts 'The machines WILL RISE!!!'
     exit
   end
 
   def player_triumph
     return unless check_vertical_player == true || check_horizontal_player == true #|| check_diagonal_player == true
-
+    @player.session.print_board
     puts 'Biological DoMiNaTiOn!!!'
     exit
   end
@@ -142,15 +143,4 @@ end
 # game.draw
 # game.player_triumph
 # game.comp_triumph
-# end
-
-
-# @player.session.board.each_key do |e|
-
-# def check_vertical
-#   if  @player.session.board.each_value do |win| 
-#   # binding.pry
-#   win == %w[. . X X X X] || %w[. X X X X .] || %w[X X X X . .]
-#     end
-#   end
 # end
