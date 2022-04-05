@@ -26,31 +26,52 @@ class Game
   end
 
 # --------------- WIN CONDITIONS ---------------
-    
+
   def draw
-    if @player.session.space.values == [-1, -1, -1, -1, -1, -1, -1]
+    return unless @player.session.space.values == [-1, -1, -1, -1, -1, -1, -1]
+    
       puts "It's a DRAW!!!"
       exit
-        end
     end
+  end
 
-  def check_horizontal; end
+  def check_horizontal_player; end
 
-  def check_vertical
-    if  @player.session.board.each_value do |win| 
-    # binding.pry
-    win == %w[. . X X X X] || %w[. X X X X .] || %w[X X X X . .]
+  def check_horizontal_comp; end
+
+  def check_diagonal_player; end
+
+  def check_diagonal_comp; end
+
+  def check_vertical_player
+    @player.session.board.each_value do |win|
+      if win == %w[. . X X X X] || win == %w[. X X X X .] || win == %w[X X X X . .]
+        return true
       end
     end
   end
 
-  def check_diagonal; end
-
-  def triumph
-    if check_vertical == true
-      puts 'Player WINS'
-      exit
+  def check_vertical_comp
+    @player.session.board.each_value do |win|
+      if win == %w[. . O O O O] || win == %w[. O O O O .] || win == %w[O O O O . .]
+        return true
+      end
     end
+  end
+
+  def computer_triumph
+    return unless check_vertical_comp == true
+
+    puts 'The machines WILL RISE!!!'
+    exit
+  end
+
+  def player_triumph
+    return unless check_vertical_player == true
+
+    puts 'Biological DoMiNaTiOn!!!'
+    exit
+  end
 end
 
 game = Game.new
@@ -61,8 +82,16 @@ game.player.player_input
 # game.player.comp_input
 game.player.session.print_board
 game.draw
-game.triumph
+game.player_triumph
 end
 
 
 # @player.session.board.each_key do |e|
+
+# def check_vertical
+#   if  @player.session.board.each_value do |win| 
+#   # binding.pry
+#   win == %w[. . X X X X] || %w[. X X X X .] || %w[X X X X . .]
+#     end
+#   end
+# end
