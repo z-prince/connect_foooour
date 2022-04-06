@@ -17,3 +17,13 @@ describe 'player_turn' do
 
   end
 end
+
+describe 'greeting' do
+  it 'returns a greeting to the user' do
+    turn = Turn.new
+    expect(turn.greeting).to eq ('Welcome to CoNnEcT fOoOoUr!
+                                 The wacky contest where vertical, horizontal, and diagonal domination are the name of the game!
+                                 May the odds be ever in your favor!
+                                 Enter p to play. Enter q to quit.')
+  end
+end
