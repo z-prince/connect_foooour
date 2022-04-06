@@ -1,15 +1,9 @@
+require 'pry'
 require './lib/game'
 require './lib/board'
+require './lib/player'
+require './lib/turn'
 
-
-p 'Welcome to CoNnEcT fOoOoUr!'
-p 'The wacky contest where vertical, horizontal, and diagonal domination are the name of the game!'
-p 'May the odds be ever in your favor!'
-
-puts "ABCDEFG
-.......
-.......
-.......
-.......
-.......
-......."
+turn = Turn.new
+turn.greeting
+turn.turn_loop

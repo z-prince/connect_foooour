@@ -25,10 +25,11 @@ class Player
   def invalid_player_move(move)
     if !@session.board.keys.include?(move)
       puts 'Invalid move, column must be A through G'
+      player_input
     elsif @session.space[move].negative?
       puts "Invalid move, column #{move} is full"
     else
-      puts "Nice move!" && @session.player_piece(move)
+      puts 'Nice move!' && @session.player_piece(move)
     end
   end
 
@@ -43,7 +44,4 @@ class Player
   def player_input_test
     invalid_move(:S)
   end
-
 end
-
-
