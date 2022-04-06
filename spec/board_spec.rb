@@ -10,9 +10,10 @@ describe 'Board' do
   
   it 'should ask a board to enter a letter A-G and take user input' do
       board = Board.new
-  
-  expect(board.player_piece(:A)).to eq({
-                                      :A=>[".", ".", ".", ".", ".", "X"],
+      board.player_piece(:A)
+
+      expect(board).to include(@board =
+                                     {:A=>[".", ".", ".", ".", ".", "X"],
                                       :B=>[".", ".", ".", ".", ".", "."],
                                       :C=>[".", ".", ".", ".", ".", "."],
                                       :D=>[".", ".", ".", ".", ".", "."],
