@@ -37,9 +37,9 @@ class Game
     row0, row1, row2, row3, row4, row5 = Array.new(6) { [] }
 
     @player.session.board.each_value do |win|
+      row5 << win[5] && row4 << win[4] && row3 << win[3]
+      row2 << win[2] && row1 << win[1] && row0 << win[0]
       if row5.join.include?('XXXX')
-        row5 << win[5] && row4 << win[4] && row3 << win[3]
-        row2 << win[2] && row1 << win[1] && row0 << win[0]
         return true
       elsif row4.join.include?('XXXX')
         return true
