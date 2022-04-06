@@ -29,19 +29,25 @@ class Player
     elsif @session.space[move].negative?
       puts "Invalid move, column #{move} is full"
     else
-      puts 'Nice move!' && @session.player_piece(move)
+      puts 'Nice move!'
+      @session.player_piece(move)
     end
   end
 
   def invalid_comp_move(move)
     if @session.space[move].negative?
-      puts 'Whoa there buddy!' && comp_input # considering turn loop
+      comp_input # considering turn loop
     else
       @session.comp_piece(move)
     end
   end
 
-  def player_input_test
-    invalid_move(:S)
+  def player_input_test(e)
+    move = e.upcase.intern
+    invalid_player_move(move)
+  end
+
+  def comp_input_test
+    @session.board.keys.sample
   end
 end
