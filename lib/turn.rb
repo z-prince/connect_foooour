@@ -7,6 +7,7 @@ class Turn
   def initialize
     @game = Game.new
   end
+
   # binding.pry
   def player_turn
     @game.player.session.print_board

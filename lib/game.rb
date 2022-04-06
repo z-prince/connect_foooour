@@ -18,7 +18,6 @@ class Game
     puts 'Enter p to play. Enter q to quit.'
     choice = gets.chomp.downcase
     if choice == 'p'
-    # is this a body
     else
       puts "You're really missing out!"
       exit
@@ -35,15 +34,11 @@ class Game
   end
 
   def check_horizontal_player?
-    row0, row1, row2, row3, row4, row5 = Array.new(6) { [] } 
+    row0, row1, row2, row3, row4, row5 = Array.new(6) { [] }
 
-    @player.session.board.each_value do |win| 
-      row5 << win[5]
-      row4 << win[4]
-      row3 << win[3]
-      row2 << win[2]
-      row1 << win[1]
-      row0 << win[0]
+    @player.session.board.each_value do |win|
+      row5 << win[5] && row4 << win[4] && row3 << win[3]
+      row2 << win[2] && row1 << win[1] && row0 << win[0]
       if row5.join.include?('XXXX')
         return true
       elsif row4.join.include?('XXXX')
@@ -61,15 +56,11 @@ class Game
   end
 
   def check_horizontal_comp?
-    row0, row1, row2, row3, row4, row5 = Array.new(6) { [] } 
+    row0, row1, row2, row3, row4, row5 = Array.new(6) { [] }
 
-    @player.session.board.each_value do |win| 
-      row5 << win[5]
-      row4 << win[4]
-      row3 << win[3]
-      row2 << win[2]
-      row1 << win[1]
-      row0 << win[0]
+    @player.session.board.each_value do |win|
+      row5 << win[5] && row4 << win[4] && row3 << win[3]
+      row2 << win[2] && row1 << win[1] && row0 << win[0]
       if row5.join.include?('OOOO')
         return true
       elsif row4.join.include?('OOOO')
@@ -92,17 +83,13 @@ class Game
 
   def check_vertical_player?
     @player.session.board.each_value do |win|
-      if win.join.include?('XXXX')
-        return true
-      end
+      return true if win.join.include?('XXXX')
     end
   end
 
   def check_vertical_comp?
     @player.session.board.each_value do |win|
-      if win.join.include?('OOOO')
-        return true
-      end
+      return true if win.join.include?('OOOO')
     end
   end
 
