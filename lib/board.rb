@@ -25,8 +25,8 @@ class Board
       G: 5
     }
 
-    @piece1 = "X"
-    @piece2 = "O"
+    @piece1 = 'X'
+    @piece2 = 'O'
   end
 
   def print_board
@@ -35,19 +35,15 @@ class Board
       @board.each_key do |key| # Takes each key and prints it's values 6 times
         print @board[key][e]
       end
-        puts '' # Creates a break in the lines to convey a proper board
+      puts '' # Creates a break in the lines to convey a proper board
     end
   end
 
   def player_piece(col)
-    # raise "Invalid move, column #{col} is full" && exit if @space[col] == -1
-
     e = @board[col].find_index('.')
     e += @space[col]
     @space[col] -= 1
     @board[col][e] = @piece1 # @board[:A][5]
-    # @board
-    return
   end
 
   def comp_piece(col)
@@ -55,7 +51,6 @@ class Board
     e += @space[col]
     @space[col] -= 1
     @board[col][e] = @piece2 # @board[:A][5]
-    # @board
     puts "The Computer plays #{col}"
   end
 end

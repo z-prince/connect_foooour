@@ -29,7 +29,7 @@ class Player
     elsif @session.space[move].negative?
       puts "Invalid move, column #{move} is full"
     else
-      puts "Nice move!" && @session.player_piece(move)
+      puts 'Nice move!' && @session.player_piece(move)
     end
   end
 
